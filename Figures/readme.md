@@ -11,7 +11,22 @@ R v4.0.3
 library(VennDiagram)
 library(ggplot2)
 
-Spm_bivalency <- draw.pairwise.venn(10761,10841,7843, category = c('Spm_H3K27me3','Spm_H3K4me3'), col = "transparent", fill = c("skyblue3", "hotpink3"), alpha = 0.5, label.col = c("darkblue", "white", "darkred"), cex = 2, fontfamily = "serif", fontface = "bold", cat.default.pos = "outer", cat.col = c("darkblue", "darkred"), cat.cex = 1.5, cat.fontfamily = "serif",  cat.pos  = c(10,350),rotation.degree=180,inverted = F)
+Spm_bivalency <- draw.pairwise.venn(10761,10841,7843,
+                                    category = c('Spm_H3K27me3','Spm_H3K4me3'),
+                                    col = "transparent",
+                                    fill = c("skyblue3", "hotpink3"),
+                                    alpha = 0.5,
+                                    label.col = c("darkblue", "white", "darkred"),
+                                    cex = 2,
+                                    fontfamily = "serif",
+                                    fontface = "bold",
+                                    cat.default.pos = "outer",
+                                    cat.col = c("darkblue", "darkred"),
+                                    cat.cex = 1.5,
+                                    cat.fontfamily = "serif",
+                                    cat.pos  = c(10,350),
+                                    rotation.degree=180,
+                                    inverted = F)
 
 ggsave("Figures/Spm_bivalency_venn.png",plot = Spm_bivalency,width = 7,height = 7)
 ```
@@ -24,7 +39,11 @@ shuffleBed -i Spm_H3K27me3.bed -g tair10_genome_size.txt -chrom > Spm_H3K27me3_s
 
 shuffleBed -i Spm_H3K4me3.bed -g tair10_genome_size.txt -chrom > Spm_H3K4me3_shuffle_1.bed
 
-mergePeaks -d given -venn Spm_bivalency_shuffle_1.venn -matrix Spm_bivalency_shuffle_1 -prefix Spm_bivalency_shuffle_1 Spm_H3K27me3_shuffle_1.bed Spm_H3K4me3_shuffle_1.bed
+mergePeaks -d given \
+           -venn Spm_bivalency_shuffle_1.venn \
+           -matrix Spm_bivalency_shuffle_1 \
+           -prefix Spm_bivalency_shuffle_1 \
+           Spm_H3K27me3_shuffle_1.bed Spm_H3K4me3_shuffle_1.bed
 
 # The peak count of "Spm_bivalency_shuffle_1_Spm_H3K27me3_shuffle_1.bed_Spm_H3K4me3_shuffle_1.bed" is the overlap of the 1st shuffle.
 ```

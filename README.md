@@ -494,6 +494,7 @@ Accroding annotate information in "Spm_bivalent_tair10.annotate", we removed the
 
 ### (4) Define HBG and CBG combined with Spm RNA-seq
 HBG(Hot Bivalent Genes): BG_FPKM >= 0.5
+
 CBG(Cold Bivalent Genes): BG_FPKM < 0.5
 
 ## 7. H3K27me3 reset genes idenfitication
