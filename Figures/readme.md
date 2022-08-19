@@ -1,10 +1,11 @@
 # Distinct chromatin signatures in Arabidopsis male gametophyte
 
 ## Requirements
+```
 homer v4.11.1
 deeptools v3.3.1
 R v4.0.3
-
+```
 
 ## 1. venn diagram (using Spm bivalency as an example)
 ```bash
