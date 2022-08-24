@@ -114,7 +114,7 @@ HBG_GO_plot <-
 HBG_GO_plot
 ggsave("Figures/HBG_GO.png",plot = HBG_GO_plot,width = 9,height = 10)
 ```
-![HBG_GO](https://github.com/Blairewen/Arabidopsis-Pollen/blob/main/Figures/HBG_GO.png)
+
 
 ## 4. Histone signal meta plot (using HBG as the example, deeptools: computeMatrix)
 ```bash
