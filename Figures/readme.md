@@ -87,9 +87,17 @@ library(tidyverse)
 library(org.At.tair.db)
 library(GOplot)
 library(ggplot2)
+gene_FPKM <- read.table("Figures/gene_FPKM_in_12tissues.data",header = T,sep = "\t",quote = "")
+SN_exp_genes <- subset(gene_FPKM, Spm >=0.5)
 HBG <- read.table("Figures/HBG_SortedBy_PeakRPKM_H3K27me3_4quantile.data",sep = "\t",header = T,quote = "")
 HBG_gene <- unique(HBG$annogene_ID)
-HBG_GO = enrichGO(HBG_gene, OrgDb = "org.At.tair.db", keyType="TAIR", ont="BP",qvalueCutoff = 0.1)
+
+HBG_GO = enrichGO(HBG_gene, 
+                  universe = SN_exp_genes$gene_ID, 
+                  OrgDb = "org.At.tair.db", 
+                  keyType="TAIR", 
+                  ont="BP",
+                  qvalueCutoff = 0.1)
 write.table(HBG_GO@result,file = "Figures/HBG_GO.txt",sep = "\t", col.names = T, row.names = F,quote = F)
 
 HBG_GO_result <- read.table("Figures/HBG_GO.txt",sep = "\t", header = T, quote = "")
