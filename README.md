@@ -309,7 +309,16 @@ cuffdiff -o cuffdiff_results/ \
 ```
 
 ## 4. scRNA-seq pipeline
-### 4.1 Genome mapping
+### 4.1 Build the STAR index of TAIR10
+```bash
+STAR-2.7.9a/source/STAR --runThreadN 20 \
+                        --runMode genomeGenerate \
+                        --genomeDir STAR_index/tair10/ \
+                        --genomeFastaFiles tair10_genome.fa \
+                        --sjdbGTFfile TAIR10.gtf
+```
+
+### 4.2 Genome mapping
 ```bash
 # PlateA
 STAR-2.7.9a/source/STAR --genomeDir STAR_index/tair10/ \
@@ -325,8 +334,7 @@ STAR-2.7.9a/source/STAR --genomeDir STAR_index/tair10/ \
                         --soloBarcodeReadLength 0 \
                         --clip3pNbases 116 \
                         --outSAMattributes CB UB \
-                        --outSAMtype BAM \
-                        SortedByCoordinate
+                        --outSAMtype BAM SortedByCoordinate
 
 # PlateB 
 STAR-2.7.9a/source/STAR --genomeDir STAR_index/tair10/ \
@@ -342,11 +350,10 @@ STAR-2.7.9a/source/STAR --genomeDir STAR_index/tair10/ \
                         --soloBarcodeReadLength 0 \
                         --clip3pNbases 116 \
                         --outSAMattributes CB UB \
-                        --outSAMtype BAM \
-                        SortedByCoordinate
+                        --outSAMtype BAM SortedByCoordinate
 ```
 
-### 4.2 Analysis scRNA-seq mapping results
+### 4.3 Analysis scRNA-seq mapping results
 Firstly, saving the results of genome mapping by samples. Here we have 2 samples: PlateA and PlateB. In this paper, we used 384 well plate to perform the single-cell RNA-seq. In each plate, vegtative nuclei were on the left side of the plate, and sperm nuclei were on the right side.
 
 ```bash
