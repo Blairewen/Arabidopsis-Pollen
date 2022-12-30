@@ -3,6 +3,13 @@
 ## Introduction
 The code in this repository contains the commands and pipeline to reproduce the data from the paper "Distinct chromatin signatures in Arabidopsis male gametophyte" (under review). The code of main figures in this paper can be found in `Figures` directory, and some necessary files can be found in `Files` directory  
 
+## Raw Sequencing Data
+The raw data (fastq files) are deposited into ArrayExpress under the accession number E-MTAB-10965, E-MTAB-10966, E-MTAB-10967, E-MTAB-12137.
+https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10965
+https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10966
+https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10967
+https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-12137
+
 ## Requirements
 
 The software packages needed for the anlaysis are:
